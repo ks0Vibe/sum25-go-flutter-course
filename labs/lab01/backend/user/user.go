@@ -64,7 +64,7 @@ func (u *User) Validate() error {
 
 // IsValidEmail checks if the email format is valid
 func IsValidEmail(email string) bool {
-	return emailRegex.MatchString(email) // Пустая строка не пройдёт regex
+	return emailRegex.MatchString(email)
 }
 
 // String returns a string representation of the user

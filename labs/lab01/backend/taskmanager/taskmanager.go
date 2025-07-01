@@ -65,12 +65,10 @@ func (tm *TaskManager) UpdateTask(id int, title, description string, done bool) 
 		return ErrTaskNotFound
 	}
 
-	// Обновляем поля задачи
 	task.Title = title
 	task.Description = description
 	task.Done = done
 
-	// Сохраняем обновленную задачу обратно в map
 	tm.tasks[id] = task
 
 	return nil

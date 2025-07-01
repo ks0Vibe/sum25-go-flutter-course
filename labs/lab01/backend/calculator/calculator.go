@@ -32,7 +32,7 @@ func Divide(a, b float64) (float64, error) {
 	return a / b, nil
 }
 
-// StringToFloat converts a string to float64
+// StringToFloat converts a string
 func StringToFloat(s string) (float64, error) {
 	return strconv.ParseFloat(s, 64)
 }
