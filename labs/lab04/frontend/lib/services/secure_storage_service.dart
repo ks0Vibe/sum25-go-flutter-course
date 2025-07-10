@@ -11,80 +11,120 @@ class SecureStorageService {
     ),
   );
 
+  // TODO: Implement saveAuthToken method
   static Future<void> saveAuthToken(String token) async {
-    await _storage.write(key: 'auth_token', value: token);
+    // TODO: Save authentication token securely
+    // Use key 'auth_token'
+    throw UnimplementedError('TODO: implement saveAuthToken method');
   }
 
+  // TODO: Implement getAuthToken method
   static Future<String?> getAuthToken() async {
-    return await _storage.read(key: 'auth_token');
+    // TODO: Get authentication token from secure storage
+    // Return null if not found
+    throw UnimplementedError('TODO: implement getAuthToken method');
   }
 
+  // TODO: Implement deleteAuthToken method
   static Future<void> deleteAuthToken() async {
-    await _storage.delete(key: 'auth_token');
+    // TODO: Delete authentication token from secure storage
+    throw UnimplementedError('TODO: implement deleteAuthToken method');
   }
 
-  static Future<void> saveUserCredentials(String username, String password) async {
-    await _storage.write(key: 'username', value: username);
-    await _storage.write(key: 'password', value: password);
+  // TODO: Implement saveUserCredentials method
+  static Future<void> saveUserCredentials(
+      String username, String password) async {
+    // TODO: Save user credentials securely
+    // Save username with key 'username' and password with key 'password'
+    throw UnimplementedError('TODO: implement saveUserCredentials method');
   }
 
+  // TODO: Implement getUserCredentials method
   static Future<Map<String, String?>> getUserCredentials() async {
-    final username = await _storage.read(key: 'username');
-    final password = await _storage.read(key: 'password');
-    return {'username': username, 'password': password};
+    // TODO: Get user credentials from secure storage
+    // Return map with 'username' and 'password' keys
+    throw UnimplementedError('TODO: implement getUserCredentials method');
   }
 
+  // TODO: Implement deleteUserCredentials method
   static Future<void> deleteUserCredentials() async {
-    await _storage.delete(key: 'username');
-    await _storage.delete(key: 'password');
+    // TODO: Delete user credentials from secure storage
+    // Delete both username and password
+    throw UnimplementedError('TODO: implement deleteUserCredentials method');
   }
 
+  // TODO: Implement saveBiometricEnabled method
   static Future<void> saveBiometricEnabled(bool enabled) async {
-    await _storage.write(key: 'biometric_enabled', value: enabled.toString());
+    // TODO: Save biometric setting securely
+    // Convert bool to string for storage
+    throw UnimplementedError('TODO: implement saveBiometricEnabled method');
   }
 
+  // TODO: Implement isBiometricEnabled method
   static Future<bool> isBiometricEnabled() async {
-    final value = await _storage.read(key: 'biometric_enabled');
-    return value == 'true';
+    // TODO: Get biometric setting from secure storage
+    // Return false as default if not found
+    throw UnimplementedError('TODO: implement isBiometricEnabled method');
   }
 
+  // TODO: Implement saveSecureData method
   static Future<void> saveSecureData(String key, String value) async {
-    await _storage.write(key: key, value: value);
+    // TODO: Save any secure data with custom key
+    throw UnimplementedError('TODO: implement saveSecureData method');
   }
 
+  // TODO: Implement getSecureData method
   static Future<String?> getSecureData(String key) async {
-    return await _storage.read(key: key);
+    // TODO: Get secure data by key
+    throw UnimplementedError('TODO: implement getSecureData method');
   }
 
+  // TODO: Implement deleteSecureData method
   static Future<void> deleteSecureData(String key) async {
-    await _storage.delete(key: key);
+    // TODO: Delete secure data by key
+    throw UnimplementedError('TODO: implement deleteSecureData method');
   }
 
-  static Future<void> saveObject(String key, Map<String, dynamic> object) async {
-    final jsonString = jsonEncode(object);
-    await _storage.write(key: key, value: jsonString);
+  // TODO: Implement saveObject method
+  static Future<void> saveObject(
+      String key, Map<String, dynamic> object) async {
+    // TODO: Save object as JSON string in secure storage
+    // Convert object to JSON string first
+    throw UnimplementedError('TODO: implement saveObject method');
   }
 
+  // TODO: Implement getObject method
   static Future<Map<String, dynamic>?> getObject(String key) async {
-    final jsonString = await _storage.read(key: key);
-    if (jsonString == null) return null;
-    return jsonDecode(jsonString) as Map<String, dynamic>;
+    // TODO: Get object from secure storage
+    // Parse JSON string back to Map
+    throw UnimplementedError('TODO: implement getObject method');
   }
 
+  // TODO: Implement containsKey method
   static Future<bool> containsKey(String key) async {
-    return await _storage.containsKey(key: key);
+    // TODO: Check if key exists in secure storage
+    throw UnimplementedError('TODO: implement containsKey method');
   }
 
+  // TODO: Implement getAllKeys method
   static Future<List<String>> getAllKeys() async {
-    final all = await _storage.readAll();
-    return all.keys.toList();
+    // TODO: Get all keys from secure storage
+    // Return list of all stored keys
+    throw UnimplementedError('TODO: implement getAllKeys method');
   }
 
+  // TODO: Implement clearAll method
   static Future<void> clearAll() async {
-    await _storage.deleteAll();
+    // TODO: Clear all data from secure storage
+    // Use deleteAll method from FlutterSecureStorage
+    throw UnimplementedError('TODO: implement clearAll method');
   }
 
+  // TODO: Implement exportData method
   static Future<Map<String, String>> exportData() async {
-    return await _storage.readAll();
+    // TODO: Export all data (for backup purposes)
+    // Return all key-value pairs
+    // NOTE: This defeats the purpose of secure storage, use carefully
+    throw UnimplementedError('TODO: implement exportData method');
   }
 }
