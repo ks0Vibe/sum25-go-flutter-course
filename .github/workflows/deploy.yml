@@ -4,29 +4,31 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.19.0"
+          channel: stable
+          flutter-version: 3.32.4
 
-      - name: Disable Flutter analytics
-        run: flutter config --no-analytics
+      - name: Install dependencies
+        run: flutter pub get
         working-directory: labs/lab07/frontend
 
-      - name: Install dependencies and build
+      - name: Build web 
         run: |
-          flutter pub get
-          flutter build web
-        working-directory: labs/lab07/frontend
+          flutter create . --platforms web
+          flutter build web --base-href /sum25-go-flutter-course/
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: labs/lab07/frontend/build/web
+          publish_dir: labs/lab07/frontend/build/web 
